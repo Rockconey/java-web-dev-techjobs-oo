@@ -7,11 +7,11 @@ import org.launchcode.techjobs_oo.*;
 import static org.junit.Assert.*;
 
 public class JobTest {
-    Job test_jobOne;
-    Job test_jobTwo;
-    Job test_jobThree;
-    Job test_jobFour;
-    Job test_jobFive;
+    private Job test_jobOne;
+    private Job test_jobTwo;
+    private Job test_jobThree;
+    private Job test_jobFour;
+    private Job test_jobFive;
 
 
 @Before
