@@ -1,6 +1,9 @@
 package org.launchcode.techjobs_oo;
 
+import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.Objects;
+
 
 public class Job {
 
@@ -12,6 +15,7 @@ public class Job {
     private Location location;
     private PositionType positionType;
     private CoreCompetency coreCompetency;
+
 
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize
@@ -30,6 +34,36 @@ public class Job {
         this.positionType = (PositionType) positionType;
         this.coreCompetency = (CoreCompetency) coreCompetency;
 
+    }
+
+    @Override
+    public String toString() {
+
+//        if (getName().equals("Data not available") && getEmployer().getValue().equals("Data not available") && getLocation().getValue().equals("Data not available") && getPositionType().getValue().equals("Data not available") && getCoreCompetency().getValue().equals("Data not available")) {
+//            System.out.println("OOPS! This job does not seem to exist.");
+//        }
+        if (getName() == null || getName().equals("")){
+            setName("Data not available");
+        }
+        if (getEmployer().getValue() == null || (getEmployer().getValue().equals(""))){
+            getEmployer().setValue("Data not available");
+        }
+        if (getLocation().getValue() == null || (getLocation().getValue().equals(""))) {
+            getLocation().setValue("Data not available");
+        }
+        if (getPositionType().getValue() == null || (getPositionType().getValue().equals(""))) {
+            getPositionType().setValue("Data not available");
+        }
+        if (getCoreCompetency().getValue() == null || (getCoreCompetency().getValue().equals(""))) {
+            getCoreCompetency().setValue("Data not available");
+        }
+
+
+
+
+        return "\n" + "ID: " + getId() + "\n" + "Name: " + getName() + "\n" +
+                "Employer: " + getEmployer() + "\n" + "Location: " + getLocation() + "\n" + "Position Type: " + getPositionType() +
+                "\n" + "Core Competency: " + getCoreCompetency() + "\n";
     }
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
