@@ -19,6 +19,9 @@ public abstract class JobField {
 
     @Override
     public String toString() {
+        if (getValue().equals("") || getValue() == null){
+            setValue("Data not available");
+        }
         return value;
     }
 

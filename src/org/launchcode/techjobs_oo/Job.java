@@ -38,31 +38,14 @@ public class Job {
     @Override
     public String toString() {
 
-//        if (getName().equals("Data not available") && getEmployer().getValue().equals("Data not available") && getLocation().getValue().equals("Data not available") && getPositionType().getValue().equals("Data not available") && getCoreCompetency().getValue().equals("Data not available")) {
-//            System.out.println("OOPS! This job does not seem to exist.");
-//        }
-        if (getName() == null || getName().equals("")){
-            setName("Data not available");
+        if ((getName().equals("") || getName() ==null ) && (getEmployer().getValue().equals("") || getEmployer().getValue() == null) && (getLocation().getValue().equals("") || getLocation().getValue() == null) && (getPositionType().getValue().equals("") || getPositionType().getValue() == null) && (getCoreCompetency().getValue().equals("") || getCoreCompetency().getValue() ==null)) {
+           return ("OOPS! This job does not seem to exist.");
         }
-        if (getEmployer().getValue() == null || (getEmployer().getValue().equals(""))){
-            getEmployer().setValue("Data not available");
-        }
-        if (getLocation().getValue() == null || (getLocation().getValue().equals(""))) {
-            getLocation().setValue("Data not available");
-        }
-        if (getPositionType().getValue() == null || (getPositionType().getValue().equals(""))) {
-            getPositionType().setValue("Data not available");
-        }
-        if (getCoreCompetency().getValue() == null || (getCoreCompetency().getValue().equals(""))) {
-            getCoreCompetency().setValue("Data not available");
-        }
-
-
-
 
         return "\n" + "ID: " + getId() + "\n" + "Name: " + getName() + "\n" +
                 "Employer: " + getEmployer() + "\n" + "Location: " + getLocation() + "\n" + "Position Type: " + getPositionType() +
                 "\n" + "Core Competency: " + getCoreCompetency() + "\n";
+
     }
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields

@@ -25,7 +25,7 @@ public void createJobObject() {
 
 @Test
 public void testSettingJobId() {
-    assertEquals(26, test_jobOne.getId(), .001);
+    assertEquals(32, test_jobOne.getId(), .001);
     assertTrue(test_jobOne.getId() != test_jobTwo.getId());
     assertEquals(test_jobOne.getId() + 1, test_jobTwo.getId(), .001);
 
@@ -72,10 +72,10 @@ public void ifFieldIsEmptyToStringReturnsDataNotAvailable() {
             "\n" + "Core Competency: " + test_jobFive.getCoreCompetency() + "\n", test_jobFive.toString());
 }
 
-//@Test
-//public void ifJobContainsIdOnlyPrintWarning() {
-//    Job test_jobFive = new Job("", new Employer(""), new Location(), new PositionType(), new CoreCompetency());
-//    assertEquals("OOPS! This job does not seem to exist.", test_jobFive.toString());
-//}
+@Test
+public void ifJobContainsIdOnlyPrintWarning() {
+    Job test_jobFive = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+    assertEquals("OOPS! This job does not seem to exist.", test_jobFive.toString());
+}
 
 }
