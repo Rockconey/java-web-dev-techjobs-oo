@@ -11,8 +11,7 @@ public class JobTest {
     private Job test_jobTwo;
     private Job test_jobThree;
     private Job test_jobFour;
-    private Job test_jobFive;
-
+    private Job test_JobFive;
 
 @Before
 public void createJobObject() {
@@ -20,12 +19,12 @@ public void createJobObject() {
     test_jobTwo = new Job();
     test_jobThree = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
     test_jobFour = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-    test_jobFive = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+    test_JobFive = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
 }
 
 @Test
 public void testSettingJobId() {
-    assertEquals(32, test_jobOne.getId(), .001);
+    assertEquals(31, test_jobOne.getId(), .001);
     assertTrue(test_jobOne.getId() != test_jobTwo.getId());
     assertEquals(test_jobOne.getId() + 1, test_jobTwo.getId(), .001);
 
@@ -67,15 +66,14 @@ public void stringContainsALabelForEachFieldFollowedByData() {
 
 @Test
 public void ifFieldIsEmptyToStringReturnsDataNotAvailable() {
-    assertEquals("\n" + "ID: " + test_jobFive.getId() + "\n" + "Name: " + test_jobFive.getName() + "\n" +
-            "Employer: " + "Data not available" + "\n" + "Location: " + test_jobFive.getLocation() + "\n" + "Position Type: " + test_jobFive.getPositionType() +
-            "\n" + "Core Competency: " + test_jobFive.getCoreCompetency() + "\n", test_jobFive.toString());
+    assertEquals("\n" + "ID: " + test_JobFive.getId() + "\n" + "Name: " + test_JobFive.getName() + "\n" +
+            "Employer: " + "Data not available" + "\n" + "Location: " + test_JobFive.getLocation() + "\n" + "Position Type: " + test_JobFive.getPositionType() +
+            "\n" + "Core Competency: " + test_JobFive.getCoreCompetency() + "\n", test_JobFive.toString());
 }
 
 @Test
 public void ifJobContainsIdOnlyPrintWarning() {
-    Job test_jobFive = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
-    assertEquals("OOPS! This job does not seem to exist.", test_jobFive.toString());
+    assertEquals("OOPS! This job does not seem to exist.", test_JobFive.toString());
 }
 
 }
